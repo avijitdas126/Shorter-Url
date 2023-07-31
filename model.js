@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+require('dotenv').config();
 mongoose
-  .connect("mongodb+srv://avijitda126:avijit!120@cluster0.p2mfujl.mongodb.net/Url-Shorter?retryWrites=true&w=majority")
+  .connect(process.env.Mongo_Url)
   .then(() => {
     console.log("Database Connection Successfully...");
   })
