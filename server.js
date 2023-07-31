@@ -24,7 +24,7 @@ app.post("/v2/", (req, res) => {
     let ima = uuid(6);
     let url1 = new Url({
       id: ima,
-      shortenurl: "https://short-url-z0ab.onrender.com/" + ima,
+      shortenurl: "https://bit-ly.onrender.com/" + ima,
       Url: url,
     });
     const data = await url1.save();
