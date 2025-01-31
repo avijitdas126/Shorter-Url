@@ -35,6 +35,13 @@ if(url)
   play()
 }
 });
+app.get("/ping", (req, res) => {
+  res.status(200).json({
+    status: "ok",
+    uptime: process.uptime(), // API uptime in seconds
+    timestamp: new Date(),
+  });
+});
 
 app.get("/:id", (req, res) => {
   let id = req.params.id;
@@ -47,17 +54,17 @@ app.get("/:id", (req, res) => {
         },
       }
     );
-    console.log(result);
+    // console.log(result);
     if (result) {
       res.redirect(result.Url);
     } else {
       // let url=result.Url
-      res.send("Error");
+       res.status(400).json({ error: "Failed to shorten URL" });
       // res.redirect(url);
     }
   };
   play();
 });
 app.listen(port, () => {
-  console.log("running at http://localhost:" + port);
+  console.log(`running at http://localhost:` + port);
 });
