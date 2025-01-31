@@ -65,6 +65,9 @@ app.get("/:id", (req, res) => {
   };
   play();
 });
+app.all("*",(req, res) => {
+  res.status(400).json({ error: "This type of path is not exited" });
+})
 app.listen(port, () => {
   console.log(`running at http://localhost:` + port);
 });
