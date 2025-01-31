@@ -13,7 +13,7 @@ app.use(
 const port = 8000;
 //Content-type is json is required
 app.use(express.json());
-app.post("/v2/", (req, res) => {
+app.post("/v1/", (req, res) => {
   let {url} = req.body;
   //if url has no https:// so i add https://
   if(!url.includes('https://') && url.length>0)
